@@ -1,12 +1,15 @@
-.label {
+.list {
+  padding: 0;
+}
+.item {
+  margin-left: 0;
+  list-style: none;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 5px;
 }
-.input {
-  border-radius: 5px;
-}
+
 .btn {
-  margin-top: 10px;
   border-radius: 10px;
   box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.96);
   -webkit-box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.96);

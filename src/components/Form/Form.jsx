@@ -1,3 +1,4 @@
+import style from './Form.module.scss';
 import { Component } from 'react';
 
 class ContactForm extends Component {
@@ -24,9 +25,11 @@ class ContactForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
+        <label className={style.label}>
           Name
           <input
+            label
+            className={style.input}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -36,10 +39,10 @@ class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <br />
-        <label>
+        <label className={style.label}>
           Number
           <input
+            className={style.input}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -49,7 +52,9 @@ class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={style.btn} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }

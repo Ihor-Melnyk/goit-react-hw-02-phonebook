@@ -1,3 +1,4 @@
+import style from './App.module.scss';
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import Container from './Container';
@@ -61,9 +62,9 @@ export class App extends Component {
     const filterContacts = this.getFilterContact();
     return (
       <Container>
-        <h1>Phonebook</h1>
+        <h1 className={style.titlePrimary}>Phonebook</h1>
         <ContactForm onSubmit={this.formSubmitHandler} />
-        <h2>Contacts</h2>
+        <h2 className={style.titleSecondary}>Contacts</h2>
         <Filter filter={this.state.filter} onChange={this.changeFilter} />
 
         <ContactList

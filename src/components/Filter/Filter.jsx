@@ -1,11 +1,17 @@
-import { createContext } from 'react';
-import { Component } from 'react';
+import style from './Filter.module.scss';
+import { IoIosSearch } from 'react-icons/io';
 
 const Filter = ({ value, onChange }) => {
   return (
-    <label htmlFor="">
-      FILTER
-      <input type="text" value={value} onChange={onChange} />
+    <label className={style.label} htmlFor="">
+      {<IoIosSearch />} Find contacts by name
+      <input
+        className={style.input}
+        type="text"
+        placeholder="find contact"
+        value={value}
+        onChange={onChange}
+      />
     </label>
   );
 };
