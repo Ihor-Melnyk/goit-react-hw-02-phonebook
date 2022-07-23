@@ -1,4 +1,5 @@
 import style from './Filter.module.scss';
+import PropTypes from 'prop-types';
 import { IoIosSearch } from 'react-icons/io';
 
 const Filter = ({ value, onChange }) => {
@@ -16,3 +17,8 @@ const Filter = ({ value, onChange }) => {
   );
 };
 export default Filter;
+
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

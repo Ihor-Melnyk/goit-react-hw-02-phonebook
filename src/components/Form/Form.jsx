@@ -1,4 +1,5 @@
 import style from './Form.module.scss';
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 
 class ContactForm extends Component {
@@ -24,11 +25,10 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className={style.form} onSubmit={this.handleSubmit}>
         <label className={style.label}>
           Name
           <input
-            label
             className={style.input}
             type="text"
             name="name"
@@ -60,3 +60,7 @@ class ContactForm extends Component {
   }
 }
 export default ContactForm;
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

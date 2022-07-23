@@ -1,10 +1,16 @@
+.form {
+  margin-bottom: 40px;
+}
+
 .label {
   display: flex;
   flex-direction: column;
 }
+
 .input {
   border-radius: 5px;
 }
+
 .btn {
   margin-top: 10px;
   border-radius: 10px;
