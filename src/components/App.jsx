@@ -23,14 +23,14 @@ export class App extends Component {
       name: name,
       number: number,
     };
-    const nameForFind = contact.name.toLowerCase();
-    const names = this.state.contacts.map(contact =>
-      contact.name.toLowerCase()
+    const normalizedName = contact.name.toLowerCase();
+    const checkedForName = this.state.contacts.find(
+      contact => normalizedName === contact.name.toLowerCase()
     );
-    if (names.find(name => name === nameForFind)) {
-      alert(`${contact.name} is already in contacts`);
-      return;
+    if (checkedForName) {
+      return alert(`${contact.name} is already in contacts`);
     }
+
     this.setState({ contacts: [...this.state.contacts, contact] });
   };
 
