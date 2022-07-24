@@ -1,7 +1,7 @@
 import style from './App.module.scss';
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import Container from './Container';
+// import Container from './Container';
 import ContactForm from './Form';
 import ContactList from './ContactList';
 import Filter from './Filter';
@@ -15,8 +15,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '+38(073)2279126' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   handleAddContact = ({ name, number }) => {
@@ -25,10 +23,11 @@ export class App extends Component {
       name: name,
       number: number,
     };
+    const nameForFind = contact.name.toLowerCase();
     const names = this.state.contacts.map(contact =>
       contact.name.toLowerCase()
     );
-    if (names.includes(contact.name.toLowerCase())) {
+    if (names.find(name => name === nameForFind)) {
       alert(`${contact.name} is already in contacts`);
       return;
     }
@@ -61,7 +60,8 @@ export class App extends Component {
   render() {
     const filterContacts = this.getFilterContact();
     return (
-      <Container>
+      <div className={style.container}>
+        <div className={style.img}></div>
         <h1 className={style.titlePrimary}>Phonebook</h1>
         <ContactForm onSubmit={this.formSubmitHandler} />
         <h2 className={style.titleSecondary}>Contacts</h2>
@@ -71,7 +71,7 @@ export class App extends Component {
           contacts={filterContacts}
           onDeleteContact={this.handleDeleteContact}
         />
-      </Container>
+      </div>
     );
   }
 }
